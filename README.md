@@ -13,5 +13,5 @@ C gives you all the power that you need at this level.
 
 Learning about pointers and memory allocation was fun. I had been working on this program in my repo `the-little-schemer` but for this project I wanted 
 to "formalize" the program a little bit -- i.e., organizing the code in multiple `c` and `h` files and writing a `Makefile`. This was actually tremendously
-fun. I got very excitied when I got it working.
+fun. I got very excited when I got it working.
 
