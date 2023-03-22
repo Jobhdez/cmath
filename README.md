@@ -1,5 +1,5 @@
 # cmath
-a tiny math library consisting of basic vectors, basic matrices, basic polynomials, basic matrix-vec arithmetic
+a tiny math library consisting of basic math: vectors, matrices, polynomials, matrix-vec arithmetic
 
 ## running the program
 
