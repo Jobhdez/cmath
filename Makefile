@@ -5,7 +5,7 @@ main.o: ./src/main.c
 	gcc -c ./src/main.c
 
 vector.o: ./src/vector.c ./src/vector.h
-	gcc -c vector.c
+	gcc -c ./src/vector.c
 
 matrix.o: ./src/matrix.c ./src/matrix.h
 	gcc -c ./src/matrix.c
