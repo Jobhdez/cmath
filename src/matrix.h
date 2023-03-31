@@ -18,6 +18,8 @@ matrix *mul_scalar(matrix *m1, int scalar);
 
 matrix *mul_sq_matrix(matrix *m1, matrix *m2);
 
+matrix *mul_sq_matrix_c(matrix *m1, matrix *m2) 
+
 void print_matrix(matrix *m1);
 
 void initialize_matrix(matrix *m1, int data);
