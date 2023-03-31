@@ -94,10 +94,10 @@ matrix *mul_sq_matrix_c(matrix *m1, matrix *m2) {
 	matrix *m3 = make_matrix(m1->rows, m1->columns);
 	int r;
 	
-	for (k = 0; k < n; k++) {
-		for (i = 0; i < n; i++) {
+	for (int k = 0; k < n; k++) {
+		for (int i = 0; i < n; i++) {
 	            r = m1->data[i][k];
-	            for (j = 0; j < n; j++) {
+	            for (int j = 0; j < n; j++) {
 	                m3->data[i][j] += r*m2->data[k][j];
 		    }
 		}
