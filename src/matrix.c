@@ -87,6 +87,23 @@ matrix *mul_sq_matrix(matrix *m1, matrix *m2) {
   return m3;
 }
 
+/* `mul_sq_matrix_c` is more cache friendly because it has good locality. 
+it has less cache misses*/
+matrix *mul_sq_matrix_c(matrix *m1, matrix *m2) {
+	int n = m1->rows;
+	matrix *m3 = make_matrix(m1->rows, m1->columns);
+	int r;
+	
+	for (k = 0; k < n; k++) {
+		for (i = 0; i < n; i++) {
+	            r = m1->data[i][k];
+	            for (j = 0; j < n; j++) {
+	                m3->data[i][j] += r*m2->data[k][j];
+		    }
+		}
+	}
+	return m3;
+}
 void print_matrix(matrix *m1) {
   for (int i = 0; i < m1->rows; i++) {
     for (int j = 0; j < m1->columns; j++) {
