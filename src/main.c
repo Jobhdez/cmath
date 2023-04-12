@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "vector.h"
 #include "matrix.h"
 #include "polynomial.h"
@@ -155,5 +156,29 @@ int main(void) {
   for (int i = 0; i < v6->length; i++) {
     printf("%d\n", v6->data[i]);
   }
-  
+
+  matrix *m8 = make_matrix(500,500);
+  initialize_matrix(m8, 2);
+  clock_t t;
+  t = clock();
+  mul_sq_matrix(m8, m8);
+  t = clock() - t;
+
+  double time_taken = ((double)t)/CLOCKS_PER_SEC;
+  printf("mul_sq_matrix function took %f seconds to exectue \n", time_taken);
+
+  free(m8->data);
+  free(m8);
+ 
+  matrix *m9 = make_matrix(500,500);
+  initialize_matrix(m9, 2);
+  clock_t t2;
+  t2 = clock();
+  mul_sq_matrix_c(m9, m9);
+  t2 = clock() - t2;
+
+  double time_taken2 = ((double)t)/CLOCKS_PER_SEC;
+  printf("mul_sq_matrix_c function took %f seconds to exectue \n", time_taken2);
+  free(m9->data);
+  free(m9);
 }
