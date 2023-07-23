@@ -12,7 +12,7 @@ poly *add_polys(poly *p1, poly *p2) {
 
    
    */
-  poly *p3;
+  poly *p3 = calloc(1, sizeof(*p3));
   int size = p1->degree + 1;
   
   p3->coefficients = malloc(size);
