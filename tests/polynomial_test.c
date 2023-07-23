@@ -22,11 +22,20 @@ void polynomial_sum_test() {
     p3->coefficients[i] = poly2[i];
   }
 
+ 
  poly *result = add_polys(p1, p1);
+ poly *sub_poly_result = sub_polys(p3, p1);
+ 
  CU_ASSERT_EQUAL(result->degree, p3->degree);
-  for (int i = 0; i < size; i++) {
-    CU_ASSERT_EQUAL(result->coefficients[i], p3->coefficients[i]);
+ CU_ASSERT_EQUAL(sub_poly_result->degree, p1->degree);
+ for (int i = 0; i < size; i++) {
+   CU_ASSERT_EQUAL(result->coefficients[i], p3->coefficients[i]);
+   CU_ASSERT_EQUAL(sub_poly_result->coefficients[i], p1->coefficients[i]);
   }
+ free(p1->coefficients);
+ free(p1);
+ free(p3->coefficients);
+ free(p3);
 }
 int main() {
   CU_pSuite pSuite1 = NULL;
