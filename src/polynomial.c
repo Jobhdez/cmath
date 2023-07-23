@@ -36,14 +36,14 @@ poly *sub_polys(poly *p1, poly *p2) {
 
    
    */
-  poly *p3;
+  poly *p3 = calloc(1, sizeof(*p3));
   int size = p1->degree + 1;
 
   p3->coefficients = malloc(size);
   p3->degree = p1->degree;
 
   for (int i = 0; i < size; i++) {
-    p3->coefficients[i] = p1->coefficients[i] + p2->coefficients[i];
+    p3->coefficients[i] = p1->coefficients[i] - p2->coefficients[i];
   }
 
   return p3;
