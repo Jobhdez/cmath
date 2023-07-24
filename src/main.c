@@ -155,6 +155,7 @@ int main(void) {
   matrix *m6 = mul_sq_matrix(m5, m5);
   printf("\n");
   printf("----squared matrix multiplication.----\n");
+  
   print_matrix(m6);
 
   free(m5->data);
