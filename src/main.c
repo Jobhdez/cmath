@@ -44,11 +44,40 @@ int main(void) {
   int deg = result_poly->degree;
   
   for (int i = 0; i < result_poly->degree + 1; i++) {
-    printf("%dx^%d+", result_poly->coefficients[i], deg);
+    printf("%dx^%d", result_poly->coefficients[i], deg);
+    if (i != result_poly->degree){
+      printf("+");
+    }
     deg = deg - 1;
 
 }
+  printf("\n");
+  poly *p2 = calloc(1, sizeof(*p2));
+  p2->degree = 2;
+  int size_p2 = p2->degree + 1;
+  p2->coefficients = calloc(size_p2, sizeof(*p2->coefficients));
+  int coeffs[] = {3,4,5};
+  for (int k = 0; k < size_p2; k++) {
+    p2->coefficients[k] = coeffs[k];
+  }
+
+  printf("\n");
+  for (int i = 0; i < 3; i++) {
+    printf("%d ", coeffs[i]);
+  }
+  poly *result_poly2 = multiply_polys(p2, p2);
+  int deg2 = result_poly2->degree;
+  printf("\n");
+  for (int i = 0; i < result_poly2->degree + 1; i++) {
+    printf("%dx^%d", result_poly2->coefficients[i], deg2);
+    if (i != result_poly2->degree){
+      printf("+");
+    }
+    deg2 = deg2 - 1;
+
+}
   free(result_poly->coefficients);
+  free(result_poly2->coefficients);
   //free(result_poly);
   printf("\n");
   printf("---eval---\n");

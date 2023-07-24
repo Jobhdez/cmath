@@ -60,11 +60,11 @@ poly *multiply_polys(poly *p1, poly *p2) {
 
    
    */
-  poly *p3;
+  poly *p3 =  calloc(1, sizeof(*p3));
   int p1_size = p1->degree + 1;
   int p2_size = p2->degree + 1;
 
-  p3->coefficients = malloc(p1_size+p2_size-1);
+  p3->coefficients = calloc(p1_size + p2_size - 1, sizeof(*p3->coefficients));
   p3->degree = p1->degree + p2->degree;
 
   for (int i = 0; i < p1_size; i++) {
