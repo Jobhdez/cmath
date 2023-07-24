@@ -6,6 +6,8 @@ a tiny math library consisting of basic math: vectors, matrices, polynomials, ma
 1. clone the repo
 2. navigate to the repo's directory and type `make`
 
+## Tests
+e.g., `gcc -o poly_test polynomial_test.c -lcunit`
 ## thanks
 
 C is actually a very interesting programming language. It is a very powerful language in that you can build really important systems such as operating systems ---
