@@ -9,7 +9,7 @@ vector *mat_vec_prod(matrix *m1, vector *v1) {
   matrix *m2 = make_matrix(rows, m1->columns);
   vector *v2 = calloc(1, sizeof(*v2));
   v2->length = m1->rows;
-  v2->data = malloc(m1->rows);
+  v2->data = calloc(v2->length, sizeof(*v2->data));
   
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < m1->columns; j++) {
