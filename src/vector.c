@@ -12,8 +12,8 @@ vector *add_vectors(vector *v1, vector *v2) {
 
    
    */
-  vector *result;
-  result->data = malloc(v1->length);
+  vector *result = calloc(1, sizeof(*result));
+  result->data = calloc(v1->length, sizeof(*result->data));
   result->length = v1->length;
 
   if (!result->data) {
@@ -40,15 +40,15 @@ vector *sub_vectors(vector *v1, vector *v2) {
 
 
    */
-  vector *result;
-  result->data = malloc(v1->length);
+  vector *result = calloc(1, sizeof(*result));
+  result->data = calloc(v1->length, sizeof(*result->data));
   result->length = v1->length;
 
   if (!result->data) {
     return NULL;
   }
 
-  for (int i = 0; v1->length; i++) {
+  for (int i = 0; i < v1->length; i++) {
     result->data[i] = v1->data[i] - v2->data[i];
   }
   return result;
@@ -60,8 +60,8 @@ vector *vec_mul_by_scalar(vector *v1, int scalar) {
     @param p2: a scalar
     @returns: p3, a vector struct denoting a vector * scalar
   */
-  vector *result;
-  result->data = malloc(v1->length);
+  vector *result = calloc(1, sizeof(*result));
+  result->data = calloc(v1->length, sizeof(*result->data));
   result->length = v1->length;
 
   for (int i = 0; i < v1->length; i++) {
@@ -81,8 +81,8 @@ vector *element_wise_product(vector *v1, vector *v2) {
 
 
    */
-  vector *element_wise;
-  element_wise->data = malloc(v1->length);
+  vector *element_wise =  calloc(1, sizeof(*element_wise));
+  element_wise->data = calloc(v1->length, sizeof(*element_wise->data));
   element_wise->length = v1->length;
   
   for (int i = 0; i < v1->length; i++) {
