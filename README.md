@@ -14,12 +14,16 @@ To run the tests:
 
 2. `./run_tests.sh`
 
-## thanks
+## dependencies
+1. You need to install cunit, the test framework.
 
-C is actually a very interesting programming language. It is a very powerful language in that you can build really important systems such as operating systems ---
-C gives you all the power that you need at this level.
+   * Arch Linux: `sudo pacman -S cunit`
+   
+## thoughts
 
-Learning about pointers and memory allocation was fun. I had been working on this program in my repo `the-little-schemer` but for this project I wanted 
-to "formalize" the program a little bit -- i.e., organizing the code in multiple `c` and `h` files and writing a `Makefile`. This was actually tremendously
-fun. I got very excited when I got it working.
+I actually like C. I think it has forced me to think deeper about programming; for example, I was able to associated pointers, memory allocation with my studies of operating systems; for instance, every time you use `malloc` or `calloc` in C you are allocating memory in the heap. In an operating system textbook you learn that a process' memory consists of text, data, heap and stack regions. I don't know - for me, making this connection was a good experience; moreover, with respect to pointers, studying this made see how memory is contiguous and that a pointer points to an memory address. This is all realated to virtual memory, another concept in operating systems; virtual memory consists of a virtual address space. When working with pointers you are interacting with the virtual memory. In assembly --e.g., x86-- you interact with the virtual memort more explicitly. Furthermore, I also like C because is the programming language for Unix/Linux and I love Linux and it culture. But I believe to truly understand the C programming language I need to implement it and as a result I am thinking of building a C compiler :)
+
+Thanks!
+
+-- Job Hdez
 
