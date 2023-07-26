@@ -1,13 +1,19 @@
 # cmath
-a tiny math library consisting of basic math: vectors, matrices, polynomials, matrix-vec arithmetic
+a tiny toy math library consisting of basic math: vectors, matrices, polynomials, matrix-vec arithmetic
 
 ## running the program
 
 1. clone the repo
-2. navigate to the repo's directory and type `make`
+2. navigate to the repo's directory and type `make` to make sure everything compiles correctly.
 
-## Tests
-e.g., `gcc -o poly_test polynomial_test.c -lcunit`
+## running the tests
+
+To run the tests:
+
+1. `chmod +x run_tests.sh`
+
+2. `./run_tests.sh`
+
 ## thanks
 
 C is actually a very interesting programming language. It is a very powerful language in that you can build really important systems such as operating systems ---
