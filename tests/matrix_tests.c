@@ -139,6 +139,39 @@ void matrix_mul_sq_mat_tests() {
 }
 
 
+void transpose_matrix_tests() {
+  int rows = 2;
+  int columns = 3;
+  matrix *m1 = make_matrix(rows, columns);
+  int matrix1[2][3] = {{2,3,4}, {5,6,7}};
+
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < columns; j++) {
+      m1->data[i][j] = matrix1[i][j];
+    }
+  }
+
+  matrix *expected_matrix = make_matrix(columns, rows);
+  
+  int matrix2[3][2] = {{2,5}, {3,6}, {4,7}};
+
+  for (int i = 0; i < columns; i++) {
+    for (int j = 0; j < rows; j++) {
+      expected_matrix->data[i][j] = matrix2[i][j];
+    }
+  }
+
+  matrix *given_matrix = transpose_matrix(m1);
+
+  CU_ASSERT_EQUAL(given_matrix->rows, expected_matrix->rows);
+  CU_ASSERT_EQUAL(given_matrix->columns, expected_matrix->columns);
+  for (int i = 0; i < expected_matrix->rows; i++) {
+    for (int j = 0; j < expected_matrix->columns; j++) {
+      CU_ASSERT_EQUAL(given_matrix->data[i][j], expected_matrix->data[i][j]);
+    }
+  }
+}
+
 int main() {
   CU_pSuite pSuite1 = NULL;
   if (CUE_SUCCESS != CU_initialize_registry()) {
@@ -166,6 +199,12 @@ int main() {
       return CU_get_error();
     }
      if ((NULL == CU_add_test(pSuite1, "\n\nSq Matrix time Sq Matrix multiplication Testing\n\n", matrix_mul_sq_mat_tests)))
+    {
+      CU_cleanup_registry();
+      return CU_get_error();
+    }
+
+     if ((NULL == CU_add_test(pSuite1, "\n\nMatrix transpose Testing\n\n", transpose_matrix_tests)))
     {
       CU_cleanup_registry();
       return CU_get_error();
