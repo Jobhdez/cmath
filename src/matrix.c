@@ -103,6 +103,23 @@ matrix *mul_sq_matrix_c(matrix *m1, matrix *m2) {
 	}
 	return m3;
 }
+
+matrix *transpose_matrix(matrix *m1) {
+  matrix *transposed_matrix = make_matrix(m1->columns, m1->rows);
+
+  for (int i = 0; i < m1->columns; i++) {
+    for (int j = 0; j < m1->rows; j++) {
+      transposed_matrix->data[i][j] = m1->data[j][i];
+    }
+  }
+
+  return transposed_matrix;
+}
+
+
+
+
+  
 void print_matrix(matrix *m1) {
   for (int i = 0; i < m1->rows; i++) {
     for (int j = 0; j < m1->columns; j++) {
@@ -113,11 +130,11 @@ void print_matrix(matrix *m1) {
   }
 }
 
-void initialize_matrix(matrix *m1, int data) {
+matrix *initialize_matrix(matrix *m1, int **data) {
   for (int i = 0; i < m1->rows; i++) {
     for (int j = 0; j < m1->columns; j++) {
-      m1->data[i][j] = data;
-      data += 1;
+      m1->data[i][j] = data[i][j];
     }
   }
+  return m1;
 }
